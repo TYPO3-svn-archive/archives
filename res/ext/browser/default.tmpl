@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <body>
+<pre>
+<em>
+
+VERSION 3.7.0
+  - #27041: Single view got the record browser. See marker ###RECORD_BROWSER### below.
+            Single view got an id.
+    #28562: Single view got some classes with jQuery ui. See ui-widget among others.
+
+VERSION 3.6.1
+  - #11886: List view search form got the new hidden field: tx_browser_pi1[plugin]
+
+
+
+DEFAULT TEMPLATE FOR LIST VIEWS
+===============================
+This template is the default template for all list views.
+
+
+  CONTROLLING MARKERS
+  ===================
+  You can control the display of subparts and markers with typoscript:
+
+    plugin.tx_browser_pi1.views.list.XX.display {
+      table {
+        summary     = 1     // Display [1] or hide [0] the table summary
+        caption     = 1     // Display [1] or hide [0] the table caption
+      }
+    }
+
+    MODESELECTOR
+    ============
+    The display of the modeselector depends on the number of your views.
+    If you have only one list view, there won't be any modeselector.
+    If you have more than one list view, there will be a modeselector.
+
+  SELF-DEFINED MARKERS
+  ====================
+  You can define markers by your self. Every self-defined marker has the stdWrap property.
+  Examples for self-defined markers in the TEMPLATE_LIST are
+  - MY_TITLE
+  - MY_URL
+  - MY_RESET
+
+  You find the configuration in
+  - plugin.tx_browser_pi1.markers
+  - plugin.tx_browser_pi1.views.list.XX.markers
+  - plugin.tx_browser_pi1.views.single.XX.markers
+
+  If a view hasn't any marker array, the browser takes the global marker array.
+
+</em>
+
+<!-- ###TEMPLATE_LIST### begin -->
+<!-- ###LIST_TITLE### begin -->
+        <div class="ui-widget ui-corner-all">
+        ###MY_TITLE###
+<!-- ###LIST_TITLE### end -->
+<!-- ###SEARCHFORM### begin -->
+        <div class="searchbox searchbox-###VIEW###-###MODE###">
+          <form action="###ACTION###" method="post" >
+            <fieldset>
+              <legend>###MY_SEARCH_LEGEND###</legend>
+              <input type="hidden" name="no_cache" value="1" />
+              <input type="hidden" name="tx_browser_pi1[plugin]" value="###PLUGIN###" />
+              <input class="sword" type="text" name="tx_browser_pi1[sword]" onfocus="if(this.value =='###SWORD_DEFAULT###') this.value=''" value="###SWORD###" />
+              <input class="button hidesubmit" type="submit" value="###MY_SEARCH###" />
+              <input class="button reset" type="button" onclick="location='###MY_URL###'" value="###MY_RESET###" />
+              <!-- Add filters with the ###TABLE.FIELD### syntax and configure your filters with TypoScript -->
+              ###TX_ARCHIVES_MATERIAL.TITLE###
+              ###TX_ARCHIVES_TECHNIQUE.TITLE###
+              ###TX_ARCHIVES_SUBJECT.TITLE###
+              ###TX_ARCHIVES_GENRE.TITLE###
+            </fieldset>
+          </form>
+          ###RESULTPHRASE###
+        </div><!-- ###SEARCHFORM### end -->
+        <div class="listarea">
+<!-- ###CATEGORY_MENU### begin -->
+        <!-- Enable the subpart CATEGORY_MENU: Set plugin.tx_browser_pi1.displayList.display.category_menu = 1 -->
+        <div class="category_menu category_menu-###VIEW###-###MODE###">
+          <!-- Add a category_menu with the ###TABLE.FIELD### syntax and configure your category_menu like a filter with TypoScript -->
+        </div><!-- ###CATEGORY_MENU### end -->
+<!-- ###AZSELECTOR### begin -->
+          <div class="azSelector azSelector-###UL_VIEW###-###UL_MODE###">
+            <ul class="azSelector azSelector-###UL_VIEW###-###UL_MODE###"><!-- ###AZSELECTORTABS### begin -->
+              <li###LI_CLASS###>###TAB###</li><!-- ###AZSELECTORTABS### end -->
+            </ul>
+          </div><!-- ###AZSELECTOR### end -->
+<!-- ###PAGEBROWSER### begin -->
+          <div class="browsebox browsebox-###VIEW###-###MODE###">
+            ###RESULT_AND_ITEMS###
+          </div><!-- ###PAGEBROWSER### end -->
+<!-- ###MODESELECTOR### begin -->
+          <div class="modeSelector modeSelector-###VIEW###-###MODE###">
+            <ul class="modeSelector modeSelector-###VIEW###-###MODE###"><!-- ###MODESELECTORTABS### begin -->
+              <li###CLASS###>###TABS###</li><!-- ###MODESELECTORTABS### end -->
+            </ul>
+          </div><!-- ###MODESELECTOR### end -->
+<!-- ###LISTVIEW### begin -->
+          <div class="###VIEW###view ###VIEW###view-###MODE###">
+<!-- ###GROUPBY### begin -->
+<!-- ###GROUPBYHEAD### begin -->
+            ###GROUPBY_GROUPNAME###
+<!-- ###GROUPBYHEAD### end -->
+<!-- ###GROUPBYBODY### begin -->
+            <table###SUMMARY###>
+              ###CAPTION### <!-- ###LISTHEAD### begin -->
+              <thead>
+                <tr><!-- ###LISTHEADITEM### begin -->
+                  <th###CLASS###>###ITEM###</th><!-- ###LISTHEADITEM### end -->
+                </tr>
+              </thead><!-- ###LISTHEAD### end -->
+              <tbody><!-- ###LISTBODY### begin -->
+                <tr###CLASS###><!-- ###LISTBODYITEM### begin -->
+                  <td###CLASS###>###ITEM### ###SOCIALMEDIA_BOOKMARKS###</td><!-- ###LISTBODYITEM### end -->
+                </tr><!-- ###LISTBODY### end -->
+              </tbody>
+            </table>
+<!-- ###GROUPBYBODY### end -->
+<!-- ###GROUPBY### end -->
+          </div><!-- ###LISTVIEW### end -->
+        </div>
+        </div> <!-- /listarea -->
+<!-- ###TEMPLATE_LIST### end -->
+
+
+
+
+
+<em>
+
+DEFAULT TEMPLATE FOR SINGLE VIEWS WITH TABLE
+============================================
+THIS SHOULD BE THE DEFAULT FOR A SINGLE VIEW!
+
+This template is used, if you have configured your typoscript like this:
+plugin.tx_browser_pi1.views.single.XX.template.default = 1
+
+  CONTROLLING MARKERS
+  ===================
+  You can control the display of subparts and markers with typoscript:
+
+    plugin.tx_browser_pi1.views.single.XX.display {
+      title         = 1     // Display [1] or hide [0] the title
+      table {
+        summary     = 1     // Display [1] or hide [0] the table summary
+        caption     = 1     // Display [1] or hide [0] the table caption
+      }
+      backbutton    = 1     // Display [1] or hide [0] the backbutton
+    }
+
+    MODESELECTOR
+    ============
+    The display of the modeselector depends on the number of your views.
+    If you have only one single view, there won't be any modeselector.
+    If you have more than one single view, there will be a modeselector.
+
+  SELF-DEFINED MARKERS
+  ====================
+  See the information in the section of the list view
+
+
+
+</em>
+
+<!-- ###TEMPLATE_SINGLE### begin -->
+<!-- ###AREA_FOR_AJAX_LIST_01### begin -->
+<!-- ###MODESELECTOR### begin -->
+        <div id="c###TT_CONTENT.UID###-modeSelector-###VIEW###-###MODE###" class="modeSelector modeSelector-###VIEW###-###MODE###">
+          <ul class="modeSelector modeSelector-###VIEW###-###MODE###"><!-- ###MODESELECTORTABS### begin -->
+            <li###CLASS###>###TABS###</li><!-- ###MODESELECTORTABS### end -->
+          </ul>
+        </div><!-- ###MODESELECTOR### end --><!-- ###SINGLEVIEW### begin -->
+        <div id="c###TT_CONTENT.UID###-###VIEW###view-###MODE###" class="###VIEW###view ###VIEW###view-###MODE###">
+          ###RECORD_BROWSER###
+          <div class="ui-widget ui-corner-all">
+            <h1 class="ui-widget-header ui-corner-top">
+              ###TITLE###
+            </h1>
+            <div class="ui-widget-content ui-corner-bottom">
+              <table###SUMMARY###>
+                ###CAPTION###<!-- ###SINGLEBODY### begin -->
+                <tbody><!-- ###SINGLEBODYROW### begin -->
+                  <tr###CLASS###>
+                    <th>###FIELD###</th>
+                    <td>###VALUE### ###SOCIALMEDIA_BOOKMARKS###</td>
+                  </tr><!-- ###SINGLEBODYROW### end -->
+                </tbody><!-- ###SINGLEBODY### end -->
+              </table>
+            </div>
+<!-- ###AREA_FOR_AJAX_LIST_01### end -->
+            <!-- ###BACKBUTTON### begin -->
+            <p class="backbutton">
+              ###BUTTON###
+            </p>
+          <!-- ###BACKBUTTON### end -->
+<!-- ###AREA_FOR_AJAX_LIST_02### begin -->
+          </div>
+        </div>
+<!-- ###AREA_FOR_AJAX_LIST_02### end -->
+        <!-- ###SINGLEVIEW### end -->
+<!-- ###TEMPLATE_SINGLE### end -->
+
+
+
+</pre>
+  </body>
+</html>

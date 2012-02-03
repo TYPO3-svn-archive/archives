@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'archives'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_archives_all.title_lang_ol">Translations:</label>
+			<label index="tx_archives_all.parent">Parent categorie:</label>
+			<label index="tx_archives_all.comment">Comment:</label>
+			<label index="tx_archives_material">Material</label>
+			<label index="tx_archives_technique">Technique</label>
+			<label index="tx_archives_subject">Subject</label>
+			<label index="tx_archives_genre">Genre</label>
+			<label index="tx_archives_collection">Collection</label>
+			<label index="tx_archives_collection.setup">Set up:</label>
+			<label index="tx_archives_collection.provenance">Provenance:</label>
+			<label index="tx_archives_collection.focus">Focus:</label>
+			<label index="tx_archives_collection.period">Period:</label>
+			<label index="tx_archives_collection.collector">Collector:</label>
+			<label index="tx_archives_collector">Collector</label>
+			<label index="tx_archives_collector.dateofbirth">Date of birth:</label>
+			<label index="tx_archives_collector.career">Career:</label>
+			<label index="tx_archives_collector.education">Education, Field of study:</label>
+			<label index="tx_archives_collector.teaching">Teaching from ... to:</label>
+			<label index="tx_archives_collector.employer">Employer:</label>
+			<label index="tx_archives_collector.particulars">Particulars:</label>
+			<label index="tx_archives_documents">Document</label>
+			<label index="tx_archives_documents.shelfmark">shelfmark:</label>
+			<label index="tx_archives_documents.year">Year:</label>
+			<label index="tx_archives_documents.format">Format:</label>
+			<label index="tx_archives_documents.age">Age:</label>
+			<label index="tx_archives_documents.gender.I.0">male</label>
+			<label index="tx_archives_documents.gender.I.1">female</label>
+			<label index="tx_archives_documents.gender">Gender:</label>
+			<label index="tx_archives_documents.material_technique">Material and Technique:</label>
+			<label index="tx_archives_documents.material">Material:</label>
+			<label index="tx_archives_documents.technique">Technique:</label>
+			<label index="tx_archives_documents.subject_genre">Subject and Genre:</label>
+			<label index="tx_archives_documents.subject">Subject:</label>
+			<label index="tx_archives_documents.genre">Genre:</label>
+			<label index="tx_archives_documents.imageseo">Label for Search Engines (one line per image):</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_archives_all.title_lang_ol"><![CDATA[Ü]]>bersetzungen:</label>
+			<label index="tx_archives_all.parent">Elternkategorie:</label>
+			<label index="tx_archives_all.comment">Kommentar:</label>
+			<label index="tx_archives_material">Material</label>
+			<label index="tx_archives_technique">Technik</label>
+			<label index="tx_archives_subject">Thema</label>
+			<label index="tx_archives_genre">Gattung</label>
+			<label index="tx_archives_collection">Sammlung</label>
+			<label index="tx_archives_collection.setup">Angelegt am:</label>
+			<label index="tx_archives_collection.provenance">Herkunft:</label>
+			<label index="tx_archives_collection.focus">Schwerpunkt(e):</label>
+			<label index="tx_archives_collection.period">Zeitraum:</label>
+			<label index="tx_archives_collection.collector">Sammler(in):</label>
+			<label index="tx_archives_collector">Sammler(in)</label>
+			<label index="tx_archives_collector.dateofbirth">Geburtsdatum:</label>
+			<label index="tx_archives_collector.career">Werdegang:</label>
+			<label index="tx_archives_collector.education">Ausbildung, Studienrichtung:</label>
+			<label index="tx_archives_collector.teaching">Lehrt<![CDATA[ä]]>tigkeit von ... bis:</label>
+			<label index="tx_archives_collector.employer">Arbeitgeber:</label>
+			<label index="tx_archives_collector.particulars">Weitere Angaben:</label>
+			<label index="tx_archives_documents">Archivale</label>
+			<label index="tx_archives_documents.shelfmark">Signatur:</label>
+			<label index="tx_archives_documents.year">Jahr:</label>
+			<label index="tx_archives_documents.format">Format:</label>
+			<label index="tx_archives_documents.age">Alter:</label>
+			<label index="tx_archives_documents.gender.I.0">m<![CDATA[ä]]>nnlich</label>
+			<label index="tx_archives_documents.gender.I.1">weiblich</label>
+			<label index="tx_archives_documents.gender">Geschlecht:</label>
+			<label index="tx_archives_documents.material_technique">Material und Technik:</label>
+			<label index="tx_archives_documents.material">Material:</label>
+			<label index="tx_archives_documents.technique">Technik:</label>
+			<label index="tx_archives_documents.subject_genre">Thema und Gattung:</label>
+			<label index="tx_archives_documents.subject">Thema:</label>
+			<label index="tx_archives_documents.genre">Gattung:</label>
+			<label index="tx_archives_documents.imageseo">Bezeichnung f<![CDATA[ü]]>r Suchmaschinen (eine Zeile pro Datei):</label>
+		</languageKey>
+	</data>
+</T3locallang>

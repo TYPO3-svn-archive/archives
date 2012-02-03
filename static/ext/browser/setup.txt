@@ -1,0 +1,195 @@
+page.includeCSS.ext_archives = EXT:archives/res/ext/browser/default.css
+plugin.tx_browser_pi1 {
+  general_stdWrap.parseFunc.allowTags := appendString(,dl,dt,dd)
+  template {
+    extensions {
+      archives {
+        table {
+          name      = Archives
+          file      = EXT:archives/res/ext/browser/default.tmpl
+          csvViews  = 118
+        }
+      }
+    }
+  }
+
+  views {
+    list {
+      118 = Kinderkunst-Archiv
+      118 {
+        name    = Kinderkunst-Archiv
+        # showUid = newsUid
+        # displayList < plugin.tx_browser_pi1.displayList
+        # displayList {
+        #   selectBox_orderBy.display = 0
+        # }
+        select (
+        tx_archives_documents.title,
+        tx_archives_subject.title, tx_archives_documents.image
+        )
+        filter {
+          tx_archives_material {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+          }
+          tx_archives_technique {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+          }
+          tx_archives_subject {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+          }
+          tx_archives_genre {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+          }
+        }
+      }
+      119 = KinderKunst-Archiv Sammlungen
+      119 {
+        name = KinderKunst-Archiv Sammlungen
+        select (
+          tx_archives_collection.title,
+          tx_archives_collection.provenance,
+          tx_archives_collection.focus,
+          tx_archives_collection.setup,
+          tx_archives_collection.period,
+          tx_archives_collector.surname,
+          tx_archives_collector.firstname
+        )
+        csvLinkToSingleView = tx_archives_collection.title
+        functions.clean_up.csvTableFields (
+          tx_archives_collection.focus,
+          tx_archives_collector.surname,
+          tx_archives_collector.firstname
+        )
+        tx_archives_collection {
+          setup {
+            strftime = %d.%m.%Y
+          }
+          title = COA
+          title {
+            10 = TEXT
+            10 {
+              value = ###TX_ARCHIVES_COLLECTION.TITLE###
+              wrap  = <strong>|</strong>
+            }
+            20 = TEXT
+            20 {
+              value     = i
+              wrap      = <dl><dt>|</dt>
+              if.isTrue = ###TX_ARCHIVES_COLLECTION.FOCUS###
+            }
+            30 = TEXT
+            30 {
+              value     = ###TX_ARCHIVES_COLLECTION.FOCUS###
+              wrap      = <dd>|</dd></dl>
+              if.isTrue = ###TX_ARCHIVES_COLLECTION.FOCUS###
+            }
+          }
+          provenance = COA
+          provenance {
+            10 = TEXT
+            10 {
+              value      = ###TX_ARCHIVES_COLLECTOR.FIRSTNAME###
+              noTrimWrap = || |
+            }
+            20 = TEXT
+            20 {
+              value = ###TX_ARCHIVES_COLLECTOR.SURNAME###
+            }
+            30 = TEXT
+            30 {
+              value     = <br />
+              if.isTrue = ###TX_ARCHIVES_COLLECTOR.FIRSTNAME######TX_ARCHIVES_COLLECTOR.SURNAME###
+            }
+            40 = TEXT
+            40 {
+              value    = ###TX_ARCHIVES_COLLECTION.PROVENANCE###
+            }
+          }
+          period = CASE
+          period {
+            key = ###TX_ARCHIVES_COLLECTION.UID###
+            1 = TEXT
+            1 {
+              value              = More »
+              lang.de            = Mehr »
+              typolink.parameter = 34
+            }
+            2                    < .1
+            2.typolink.parameter = 35
+            3                    < .1
+            3.typolink.parameter = 36
+            4                    < .1
+            4.typolink.parameter = 37
+            5                    < .1
+            5.typolink.parameter = 38
+            6                    < .1
+            6.typolink.parameter = 39
+            7                    < .1
+            7.typolink.parameter = 26
+          }
+        }
+/*
+        tx_archives_collector {
+          surname = COA
+          surname {
+            10 = TEXT
+            10 {
+              value      = ###TX_ARCHIVES_COLLECTOR.FIRSTNAME###
+              noTrimWrap = || |
+            }
+            20 = TEXT
+            20 {
+              value = ###TX_ARCHIVES_COLLECTOR.SURNAME###
+            }
+          }
+        }
+*/
+      }
+    }
+    single {
+      118 = Kinderkunst-Archiv
+      118 {
+        name    = Kinderkunst-Archiv
+        select (
+        tx_archives_documents.title, tx_archives_documents.image,
+        tx_archives_documents.shelfmark,
+        tx_archives_documents.year,
+        tx_archives_documents.format,
+        tx_archives_documents.age,
+        tx_archives_documents.gender,
+        tx_archives_collection.title,
+        tx_archives_material.title, tx_archives_technique.title,
+        tx_archives_subject.title, tx_archives_genre.title
+        )
+      }
+      119 {
+      }
+    }
+  }
+  _LOCAL_LANG.de {
+    tx_archives_material_title    = Material
+    tx_archives_technique_title   = Technik
+    tx_archives_subject_title     = Thema
+    tx_archives_genre_title       = Gattung
+    tx_archives_collection_title  = Sammlung
+    tx_archives_collector_surname = Sammler(in)
+    tx_archives_collection_period = &nbsp;
+    label_first_visit             = Bitte geben Sie einen Suchbegriff ein oder wählen Sie aus den Kategorien aus.
+  }
+}
+
+
+// AJAX page object
+[globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
+// Don't handle header of content element
+lib.stdheader >
+// Don't wrap content element with a default div
+tt_content.stdWrap >
+// Don't prefix the content element with a comment
+tt_content.list.20.stdWrap.prefixComment >
+// Remove the current page obeject
+page >
+// Create a page object for AJAX
+page < plugin.tx_browser_pi1.javascript.ajax.page
+[global]
+// AJAX page object

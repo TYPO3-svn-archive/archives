@@ -1,0 +1,29 @@
+.tx-browser-pi1 .listview-119 dl {
+	display: inline;
+	padding-left: 1em;
+	position: relative;
+}
+.tx-browser-pi1 .listview-119 dt {
+	background-color: rgb(237,143,21);
+	border-radius: .4em;
+	color: #fff;
+	display: inline;
+	font-family: serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: .2em;
+}
+.tx-browser-pi1 .listview-119 dd {
+	background-color: #fff;
+	border: 1px solid rgb(237,143,21);
+	display: none;
+	padding: .5em;
+	position: absolute;
+	left: 1.5em;
+	top: 1em;
+    white-space: nowrap;
+	z-index: 2;
+}
+	.tx-browser-pi1 .listview-119 dl:hover dd {
+		display: block;
+	}
