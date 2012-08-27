@@ -126,6 +126,7 @@ $TCA['tx_archives_material'] = array(
 				'minitems' => 0,
 				'maxitems' => 1,
 				'wizards'  => $confWizardsMaterial,
+				'treeView' => '1',  ##  test browser fe 3.9.7
 			),
 		),
 	),
@@ -492,12 +493,13 @@ $TCA['tx_archives_documents'] = array(
 											ORDER BY tx_archives_material.title',
 				'size'                => 20,
 				'minitems'            => 0,
+				'maxitems'            => 10,
 				'wizards'             => $confWizardsMaterial,
 				'renderMode'          => 'tree',
 				'treeConfig'          => array(
 					'parentField' => 'parent',
 					'appearance'  => array(
-						'expandAll'  => true,
+					##	'expandAll'  => true,
 						'showHeader' => true,
 					),
 				),
@@ -519,7 +521,7 @@ $TCA['tx_archives_documents'] = array(
 				'treeConfig'          => array(
 					'parentField' => 'parent',
 					'appearance'  => array(
-						'expandAll'  => true,
+					##	'expandAll'  => true,
 						'showHeader' => true,
 					),
 				),
@@ -541,7 +543,7 @@ $TCA['tx_archives_documents'] = array(
 				'treeConfig'          => array(
 					'parentField' => 'parent',
 					'appearance'  => array(
-						'expandAll'  => true,
+					##	'expandAll'  => true,
 						'showHeader' => true,
 					),
 				),
@@ -563,7 +565,7 @@ $TCA['tx_archives_documents'] = array(
 				'treeConfig'          => array(
 					'parentField' => 'parent',
 					'appearance'  => array(
-						'expandAll'  => true,
+					##	'expandAll'  => true,
 						'showHeader' => true,
 					),
 				),
