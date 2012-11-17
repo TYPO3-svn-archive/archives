@@ -172,7 +172,104 @@ CREATE TABLE tx_archives_documents (
 	image_effects tinyint(3) unsigned DEFAULT '0' NOT NULL,
 	image_compression tinyint(3) unsigned DEFAULT '0' NOT NULL,
 	image_frames tinyint(3) unsigned DEFAULT '0' NOT NULL,
+	import_origUid int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)
+);
+
+
+
+#
+# Table structure for table 'tx_archives_documents_mm_tx_archives_material'
+#
+#
+CREATE TABLE tx_archives_documents_mm_tx_archives_material (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(30) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# Table structure for table 'tx_archives_documents_mm_tx_archives_technique'
+#
+#
+CREATE TABLE tx_archives_documents_mm_tx_archives_technique (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(30) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# Table structure for table 'tx_archives_documents_mm_tx_archives_subject'
+#
+#
+CREATE TABLE tx_archives_documents_mm_tx_archives_subject (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(30) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# Table structure for table 'tx_archives_documents_mm_tx_archives_genre'
+#
+#
+CREATE TABLE tx_archives_documents_mm_tx_archives_genre (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(30) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# Table structure for table 'tx_archives_documents_mm_tx_archives_collection'
+#
+#
+CREATE TABLE tx_archives_documents_mm_tx_archives_collection (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(30) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# Table structure for table 'tx_archives_documents_mm_tx_archives_collection'
+#
+#
+CREATE TABLE tx_archives_collection_mm_tx_archives_collector (
+	uid_local int(11) DEFAULT '0' NOT NULL,
+	uid_foreign int(11) DEFAULT '0' NOT NULL,
+	tablenames varchar(30) DEFAULT '' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
 );

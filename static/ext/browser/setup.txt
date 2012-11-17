@@ -1,4 +1,5 @@
 page.includeCSS.ext_archives = EXT:archives/res/ext/browser/default.css
+
 plugin.tx_browser_pi1 {
   general_stdWrap.parseFunc.allowTags := appendString(,dl,dt,dd)
   template {
@@ -30,6 +31,7 @@ plugin.tx_browser_pi1 {
         filter {
           tx_archives_material {
             title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+          # title < plugin.tx_browser_pi1.displayList.master_templates.category_menu
           }
           tx_archives_technique {
             title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
@@ -151,15 +153,20 @@ plugin.tx_browser_pi1 {
       118 {
         name    = Kinderkunst-Archiv
         select (
-        tx_archives_documents.title, tx_archives_documents.image,
+        tx_archives_documents.title,
+        tx_archives_documents.image,
+        tx_archives_documents.image_zoom,
+        tx_archives_documents.image_link,
         tx_archives_documents.shelfmark,
         tx_archives_documents.year,
         tx_archives_documents.format,
         tx_archives_documents.age,
         tx_archives_documents.gender,
         tx_archives_collection.title,
-        tx_archives_material.title, tx_archives_technique.title,
-        tx_archives_subject.title, tx_archives_genre.title
+        tx_archives_material.title,
+        tx_archives_technique.title,
+        tx_archives_subject.title,
+        tx_archives_genre.title
         )
       }
       119 {
@@ -193,3 +200,4 @@ page >
 page < plugin.tx_browser_pi1.javascript.ajax.page
 [global]
 // AJAX page object
+plugin.tx_browser_pi1.navigation.record_browser = 0

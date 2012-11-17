@@ -1,3 +1,10 @@
+0.2.2
+	2012-10-20
+	Ulfried Herrmann <http://herrmann.at.die-netzmacher.de>
+
+	* UPD: Relations modified - use mm tables for increasing performance
+	* UPD: TCA modified - image positioning can be switched between none, simple, extended
+
 0.2.1
 	2012-02-03
 	Ulfried Herrmann <http://herrmann.at.die-netzmacher.de>

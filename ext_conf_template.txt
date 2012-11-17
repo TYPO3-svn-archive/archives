@@ -1,2 +1,4 @@
-	# cat=basic/enable/930;             type=options[Easy 1: all in the same directory = 1,Easy 2: same as easy 1 but with storage pid = 2]; label=Store record configuration: [Easy 1]: less configuration costs. If you want to link from one record to another, both have to be stored in the same directory. It may be confusing in case of a lot of data. [Easy 2]: Same like [Easy 1], but you can set a storage pid. Gives you more flexibility.
+	# cat=basic/enable/10;  type=options[Easy 1: all in the same directory = 1,Easy 2: same as easy 1 but with storage pid = 2]; label=Store record configuration: [Easy 1]: less configuration costs. If you want to link from one record to another, both have to be stored in the same directory. It may be confusing in case of a lot of data. [Easy 2]: Same like [Easy 1], but you can set a storage pid. Gives you more flexibility.
 store_records = 2
+	# cat=basic/enable/20;  type=options[No = 0,Yes = 1]; label=Use field „Image orient” in Backend.
+TCA_imageorient_mode = 0

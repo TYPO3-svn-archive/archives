@@ -31,6 +31,7 @@
 			<label index="tx_archives_documents.year">Year:</label>
 			<label index="tx_archives_documents.format">Format:</label>
 			<label index="tx_archives_documents.age">Age:</label>
+			<label index="tx_archives_documents.gender.I.u">unknown</label>
 			<label index="tx_archives_documents.gender.I.0">male</label>
 			<label index="tx_archives_documents.gender.I.1">female</label>
 			<label index="tx_archives_documents.gender">Gender:</label>
@@ -41,6 +42,7 @@
 			<label index="tx_archives_documents.subject">Subject:</label>
 			<label index="tx_archives_documents.genre">Genre:</label>
 			<label index="tx_archives_documents.imageseo">Label for Search Engines (one line per image):</label>
+			<label index="tx_archives_documents.import_origUid">Import: Orig UID</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="tx_archives_all.title_lang_ol"><![CDATA[Ü]]>bersetzungen:</label>
@@ -68,6 +70,7 @@
 			<label index="tx_archives_documents.year">Jahr:</label>
 			<label index="tx_archives_documents.format">Format:</label>
 			<label index="tx_archives_documents.age">Alter:</label>
+			<label index="tx_archives_documents.gender.I.u">unbekannt</label>
 			<label index="tx_archives_documents.gender.I.0">m<![CDATA[ä]]>nnlich</label>
 			<label index="tx_archives_documents.gender.I.1">weiblich</label>
 			<label index="tx_archives_documents.gender">Geschlecht:</label>

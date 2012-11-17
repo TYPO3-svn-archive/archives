@@ -8,7 +8,7 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 
-
+	//  ext conf:
 $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['archives']);
 switch ($extConf['store_records']) {
 case 1:
@@ -21,6 +21,8 @@ default:
 	$pidStr = 'STORAGE_PID';
 	break;
 }
+
+$imageorient = (empty($extConf['TCA_imageorient_mode'])) ? NULL : $TCA['tt_content']['columns']['imageorient'];
 
 $confFields = array(
 	'hidden' => array(
@@ -262,6 +264,7 @@ $TCA['tx_archives_collection'] = array(
 				'foreign_table'       => 'tx_archives_collector',
 				'foreign_table_where' => 'AND tx_archives_collector.pid=###' . $pidStr . '###
 											ORDER BY tx_archives_collector.surname',
+				'MM'                  => 'tx_archives_collection_mm_tx_archives_collector',
 				'size'                => 30,
 				'minitems'            => 0,
 				'maxitems'            => 20,
@@ -462,6 +465,7 @@ $TCA['tx_archives_documents'] = array(
 			'config' => array(
 				'type' => 'radio',
 				'items' => array(
+					array('LLL:EXT:archives/locallang_db.xml:tx_archives_documents.gender.I.u', '-1'),
 					array('LLL:EXT:archives/locallang_db.xml:tx_archives_documents.gender.I.0', '0'),
 					array('LLL:EXT:archives/locallang_db.xml:tx_archives_documents.gender.I.1', '1'),
 				),
@@ -478,6 +482,7 @@ $TCA['tx_archives_documents'] = array(
 				'foreign_table'       => 'tx_archives_collection',
 				'foreign_table_where' => 'AND tx_archives_collection.pid=###' . $pidStr . '###
 											ORDER BY tx_archives_collection.title',
+				'MM'                  => 'tx_archives_documents_mm_tx_archives_collection',
 				'size'                => 1,
 				'minitems'            => 0,
 				'maxitems'            => 1,
@@ -491,6 +496,7 @@ $TCA['tx_archives_documents'] = array(
 				'foreign_table'       => 'tx_archives_material',
 				'foreign_table_where' => 'AND tx_archives_material.pid=###' . $pidStr . '###
 											ORDER BY tx_archives_material.title',
+				'MM'                  => 'tx_archives_documents_mm_tx_archives_material',
 				'size'                => 20,
 				'minitems'            => 0,
 				'maxitems'            => 10,
@@ -513,6 +519,7 @@ $TCA['tx_archives_documents'] = array(
 				'foreign_table'       => 'tx_archives_technique',
 				'foreign_table_where' => 'AND tx_archives_technique.pid=###' . $pidStr . '###
 											ORDER BY tx_archives_technique.title',
+				'MM'                  => 'tx_archives_documents_mm_tx_archives_technique',
 				'size'                => 20,
 				'minitems'            => 0,
 				'maxitems'            => 10,
@@ -535,6 +542,7 @@ $TCA['tx_archives_documents'] = array(
 				'foreign_table'       => 'tx_archives_subject',
 				'foreign_table_where' => 'AND tx_archives_subject.pid=###' . $pidStr . '###
 											ORDER BY tx_archives_subject.title',
+				'MM'                  => 'tx_archives_documents_mm_tx_archives_subject',
 				'size'                => 20,
 				'minitems'            => 0,
 				'maxitems'            => 10,
@@ -557,6 +565,7 @@ $TCA['tx_archives_documents'] = array(
 				'foreign_table'       => 'tx_archives_genre',
 				'foreign_table_where' => 'AND tx_archives_genre.pid=###' . $pidStr . '###
 											ORDER BY tx_archives_genre.title',
+				'MM'                  => 'tx_archives_documents_mm_tx_archives_genre',
 				'size'                => 20,
 				'minitems'            => 0,
 				'maxitems'            => 10,
@@ -574,7 +583,7 @@ $TCA['tx_archives_documents'] = array(
 		'image'                 => $TCA['tt_content']['columns']['image'],
 		'imagewidth'            => $TCA['tt_content']['columns']['imagewidth'],
 		'imageheight'           => $TCA['tt_content']['columns']['imageheight'],
-		'imageorient'           => $TCA['tt_content']['columns']['imageorient'],
+		'imageorient'           => $imageorient,
 		'imagecaption'          => $TCA['tt_content']['columns']['imagecaption'],
 		'imagecaption_position' => $TCA['tt_content']['columns']['imagecaption_position'],
 		'imagecols'             => $TCA['tt_content']['columns']['imagecols'],
@@ -593,6 +602,13 @@ $TCA['tx_archives_documents'] = array(
 				'type' => 'text',
 				'cols' => '30',
 				'rows' => '5',
+			),
+		),
+		'import_origUid' => array(
+			'exclude' => 1,
+			'label'   => 'LLL:EXT:' . $_EXTKEY . '/locallang_db.xml:tx_archives_documents.import_origUid',
+			'config'  => array (
+				'type' => 'none',
 			),
 		),
 	),
@@ -614,6 +630,8 @@ $TCA['tx_archives_documents'] = array(
 					--palette--;LLL:EXT:archives/locallang_db.xml:tx_archives_documents.subject_genre;subject_genre,
 				--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,
 					hidden;;1,
+				--div--;Import,
+					import_origUid,
 				--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.extended',
 		),
 	),
@@ -641,6 +659,14 @@ $TCA['tx_archives_documents'] = array(
 		),
 	),
 );
+
+	//  remove `imageorient` items
+foreach ($TCA['tx_archives_documents']['columns']['imageorient']['config']['items'] as $iKey => $iVal) {
+	if ($iKey > 2) {
+		unset($TCA['tx_archives_documents']['columns']['imageorient']['config']['items'][$iKey]);
+	}
+}
+
 $TCA['tx_archives_documents']['columns']['image']['config']['uploadfolder'] = 'uploads/tx_archives';
 
 
