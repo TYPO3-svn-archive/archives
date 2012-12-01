@@ -4,6 +4,10 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 
+	//  uherrmann, 121117: add plugin
+t3lib_extMgm::addPItoST43($_EXTKEY, 'pi1/class.tx_archives_pi1.php', '_pi1', 'list_type', 1);
+
+
 t3lib_extMgm::addUserTSConfig('options.saveDocNew.tx_archives_collection=1');
 t3lib_extMgm::addUserTSConfig('options.saveDocNew.tx_archives_collector=1');
 t3lib_extMgm::addUserTSConfig('options.saveDocNew.tx_archives_documents=1');

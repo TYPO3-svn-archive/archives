@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin „tx_archives_pi1”</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_archives_shelfmark">Shelfmark</label>
+			<label index="tx_archives_title">Title</label>
+			<label index="tx_archives_image">Image</label>
+			<label index="tx_archives_year">Year</label>
+			<label index="tx_archives_categories">Categories</label>
+			<label index="tx_archives_material">Material</label>
+			<label index="tx_archives_technique">Technique</label>
+			<label index="tx_archives_subject">Subject</label>
+			<label index="tx_archives_genre">Genre</label>
+
+			<label index="label_allEntries">All Entries</label>
+
+			<label index="label_first_visit"><![CDATA[<p>Please send a search word.</p>]]></label>
+			<label index="phrase_norecord"><![CDATA[<p>Sorry, there is no matched record!</p>]]></label>
+
+			<label index="back">Back</label>
+			<label index="submit_button_label">Click here to submit value</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_archives_shelfmark">Signatur</label>
+			<label index="tx_archives_title">Titel</label>
+			<label index="tx_archives_image">Abbildung</label>
+			<label index="tx_archives_year">Jahr</label>
+			<label index="tx_archives_categories">Kategorie</label>
+			<label index="tx_archives_material">Material</label>
+			<label index="tx_archives_technique">Technik</label>
+			<label index="tx_archives_subject">Thema</label>
+			<label index="tx_archives_genre">Gattung</label>
+
+			<label index="label_allEntries">Alle</label>
+
+			<label index="label_first_visit"><![CDATA[<p>Bitte senden Sie eine Suchabfrage.</p>]]></label>
+			<label index="phrase_norecord"><![CDATA[<p>Zu Ihrer Anfrage gibt es keine Treffer.</p>]]></label>
+
+			<label index="pi_list_searchBox_search">Suchen</label>
+			<label index="pi_list_browseresults_first"><![CDATA[<< Erste Seite]]></label>
+			<label index="pi_list_browseresults_prev"><![CDATA[< Vorige Seite]]></label>
+			<label index="pi_list_browseresults_page">Page</label>
+			<label index="pi_list_browseresults_next"><![CDATA[Nächste Seite >]]></label>
+			<label index="pi_list_browseresults_last"><![CDATA[Letzte Seite >>]]></label>
+			<label index="pi_list_browseresults_to">to</label>
+			<label index="pi_list_browseresults_displays"><![CDATA[Zeige ###SPAN_BEGIN###%s bis %s</span> von insgesamt ###SPAN_BEGIN###%s Einträgen</span>]]></label>
+			<label index="pi_list_browseresults_page">Seite</label>
+			<label index="back"><![CDATA[Zurück]]></label>
+			<label index="submit_button_label">Abschicken</label>
+		</languageKey>
+	</data>
+</T3locallang>

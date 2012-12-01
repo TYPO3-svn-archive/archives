@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>
+<head>
+	<title>template for tx_archives_pi1</title>
+</head>
+<body>
+<!-- ###TEMPLATE_LIST### begin -->
+<form action="###ACTION###" method="post">
+<!-- ###SEARCHBOX### begin -->
+<div class="searchbox">
+	<input type="text" name="###INPUT_NAME###" value="###INPUT_VALUE###" class="searchbox-sword" />
+	<input type="submit" value="###SUBMIT_VALUE###" class="searchbox-button searchbox-submit" />
+	<input type="hidden" name="no_cache" value="1" />
+	<input type="hidden" name="######POINTER_NAME######" value="" />
+</div><!-- ###SEARCHBOX### end -->
+
+<!-- ###CATEGORY_MENU### begin -->
+<div class="selectbox selectbox-###TABLE###">
+	<label class="selectbox_title">###SELECTBOX_LABEL###</label>
+	<select name="###PREFIXID###[###TABLE###][]" id="###PREFIXID###_###TABLE###" size="###SIZE###" multiple="multiple">
+		<!-- ###OPTGROUP_TPL### begin -->
+		<optgroup label="###OPTGROUP_LABEL###">
+			<!-- ###OPTION_TPL### begin -->
+			<option ###OPTION_CLASS### value="###OPTION_VALUE###" ###OPTION_SELECTED###>###OPTION_LABEL###</option><!-- ###OPTION_TPL### end -->
+		</optgroup><!-- ###OPTGROUP_TPL### end -->
+	</select>
+</div><!-- ###CATEGORY_MENU### end -->
+</form>
+
+<table ###SUMMARY### class="listview">
+	<!-- ###LISTHEAD### begin -->
+	<thead>
+		<tr>
+			<th class="first">###HEAD_TITLE###</th>
+			<th>###HEAD_IMAGE###</th>
+			<th>###HEAD_SHELFMARK###</th>
+			<th>###HEAD_YEAR###</th>
+			<th class="last">###HEAD_CATEGORIES###</th>
+		</tr>
+	</thead><!-- ###LISTHEAD### end -->
+	<tbody><!-- ###LISTBODY### begin -->
+		<tr ###CLASS###>
+			<td class="title first">###TITLE###</td>
+			<td class="image">###IMAGE###</td>
+			<td class="image">###SHELFMARK###</td>
+			<td class="image">###YEAR###</td>
+			<td class="categories last"><em>###LABEL_MATERIAL###:</em> ###MATERIAL###<br />
+				<em>###LABEL_TECHNIQUE###:</em> ###TECHNIQUE###<br />
+				<em>###LABEL_SUBJECT###:</em> ###SUBJECT###<br />
+				<em>###LABEL_GENRE###:</em> ###GENRE###</td>
+		</tr><!-- ###LISTBODY### end -->
+	</tbody>
+</table>
+<!-- ###BROWSER_RESULTS### begin -->
+<!-- ###BROWSER_RESULTS### end -->
+<!-- ###TEMPLATE_LIST### end -->
+
+
+<!-- ###TEMPLATE_SINGLE### begin -->
+<!-- ###TEMPLATE_SINGLE### end -->
+</body>

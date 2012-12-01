@@ -27,7 +27,7 @@
 			<label index="tx_archives_collector.employer">Employer:</label>
 			<label index="tx_archives_collector.particulars">Particulars:</label>
 			<label index="tx_archives_documents">Document</label>
-			<label index="tx_archives_documents.shelfmark">shelfmark:</label>
+			<label index="tx_archives_documents.shelfmark">Shelfmark:</label>
 			<label index="tx_archives_documents.year">Year:</label>
 			<label index="tx_archives_documents.format">Format:</label>
 			<label index="tx_archives_documents.age">Age:</label>
@@ -43,6 +43,8 @@
 			<label index="tx_archives_documents.genre">Genre:</label>
 			<label index="tx_archives_documents.imageseo">Label for Search Engines (one line per image):</label>
 			<label index="tx_archives_documents.import_origUid">Import: Orig UID</label>
+
+			<label index="tt_content.list_type_pi1">Archives</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="tx_archives_all.title_lang_ol"><![CDATA[Ü]]>bersetzungen:</label>
@@ -81,6 +83,8 @@
 			<label index="tx_archives_documents.subject">Thema:</label>
 			<label index="tx_archives_documents.genre">Gattung:</label>
 			<label index="tx_archives_documents.imageseo">Bezeichnung f<![CDATA[ü]]>r Suchmaschinen (eine Zeile pro Datei):</label>
+
+			<label index="tt_content.list_type_pi1">Archiv</label>
 		</languageKey>
 	</data>
 </T3locallang>
